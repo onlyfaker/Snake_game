@@ -5,15 +5,16 @@
 #todo - 5. create scoreboard
 #todo - 6. wall collsion
 #todo - 7. tail collsion
+import time
 from turtle import Turtle,Screen
 
 screen = Screen()
 screen.setup(width=600,height=600)
 screen.bgcolor('black')
 screen.title('Snake Game')
+screen.tracer(0) #tracer is off
 
 segments = []
-
 xcor = 0
 for square in range(0,3):
     body = Turtle(shape='square')
@@ -26,11 +27,9 @@ for square in range(0,3):
 
 game_on =True
 while game_on:
+    screen.update()
+    time.sleep(0.1)
     for segment in segments:
         segment.forward(10)
-
-
-
-
 
 screen.exitonclick()
