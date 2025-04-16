@@ -12,13 +12,25 @@ screen.setup(width=600,height=600)
 screen.bgcolor('black')
 screen.title('Snake Game')
 
+segments = []
 
 xcor = 0
 for square in range(0,3):
     body = Turtle(shape='square')
+    body.penup()
     body.color('white')
     body.goto(xcor, 0)
     xcor-=20
+    segments.append(body)
+
+
+game_on =True
+while game_on:
+    for segment in segments:
+        segment.forward(10)
+
+
+
 
 
 screen.exitonclick()
