@@ -25,11 +25,15 @@ for square in range(0,3):
     segments.append(body)
 
 
-game_on =True
+game_on = True
 while game_on:
     screen.update()
     time.sleep(0.1)
-    for segment in segments:
-        segment.forward(10)
+    for seg in range(len(segments)-1,0,-1):
+        new_xcor = segments[seg-1].xcor()
+        new_ycor = segments[seg-1].ycor()
+        segments[seg].goto(new_xcor,new_ycor)
+    segments[0].forward(20)
+
 
 screen.exitonclick()
