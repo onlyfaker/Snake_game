@@ -1,6 +1,6 @@
 #todo/done - 1. create snake body
 #todo/done - 2. move the snake
-#todo - 3. control snake
+#todo/done - 3. control snake
 #todo - 4. detect food collision
 #todo - 5. create scoreboard
 #todo - 6. wall collsion
@@ -28,6 +28,8 @@ while game_on:
     screen.update()
     time.sleep(0.1)
     snake.move()
+    screen.update()
+
 
 
 screen.exitonclick()
