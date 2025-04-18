@@ -7,12 +7,15 @@
 #todo - 7. tail collsion
 import time
 from turtle import Turtle,Screen
+
+from food import Food
 from snake import Snake
 screen = Screen()
 screen.setup(width=600,height=600)
 screen.bgcolor('black')
 screen.title('Snake Game')
 screen.tracer(0) #tracer is off
+food = Food()
 
 snake=Snake()
 screen.listen()
@@ -22,13 +25,13 @@ screen.onkey(snake.left,"Left")
 screen.onkey(snake.right,"Right")
 
 
-
 game_on = True
 while game_on:
     screen.update()
     time.sleep(0.1)
     snake.move()
     screen.update()
+
 
 
 
