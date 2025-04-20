@@ -6,7 +6,7 @@
 #todo/done - 6. wall collsion
 #todo/done - 7. tail collsion
 
-
+# todo - highscore table(at the end when game over is writen , show highscore board)
 import time
 import turtle
 from turtle import Screen
