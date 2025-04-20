@@ -21,3 +21,4 @@ class Scoreboard(Turtle):
         self.write(f"S C O R E: {self.score_count}", align="center", font=("Verdana", 14, "normal"))
 
 
+

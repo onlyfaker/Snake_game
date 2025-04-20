@@ -1,5 +1,6 @@
 from turtle import Turtle
 
+STARTING_POSITION = [(0,0),(-20,0),(-40,0)]
 MOVE_DISTANCE = 20
 DOWN = 270
 UP = 90
@@ -17,14 +18,20 @@ class Snake:
         self.is_turning = False  # Flag to prevent multiple turns per move cycle
 
     def create_snake(self):
-        xcor = 0
-        for square in range(0, 3):
-            body = Turtle(shape='square')
-            body.penup()
-            body.color('white')
-            body.goto(xcor, 0)
-            xcor -= 20
-            self.segments.append(body)
+        for square_position in STARTING_POSITION:
+            self.add_segment(square_position)
+
+    def add_segment(self, square_position):
+        body = Turtle(shape='square')
+        body.color('white')
+        body.penup()
+        body.goto(square_position)
+        self.segments.append(body)
+
+    def extend(self):
+        # Get the position of the last segment and add a new segment there
+        last_segment_pos = self.segments[-1].position()
+        self.add_segment(last_segment_pos)
 
     def move(self):
         # Apply the next direction at the beginning of the move cycle
@@ -61,3 +68,4 @@ class Snake:
         if self.current_direction != LEFT and not self.is_turning:
             self.next_direction = RIGHT
             self.is_turning = True
+
