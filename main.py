@@ -2,8 +2,8 @@
 #todo/done - 2. move the snake
 #todo/done - 3. control snake
 #todo/done - 4. detect food collision
-#todo - 5. create scoreboard
-#todo - 6. wall collsion
+#todo/done - 5. create scoreboard
+#todo/done - 6. wall collsion
 #todo - 7. tail collsion
 import time
 import turtle
@@ -40,7 +40,10 @@ while game_on:
         scoreboard.score_count+=1
         scoreboard.increase_score()
         food.refresh()
-
+    screen.update()
+    if snake.head.xcor()>280 or snake.head.xcor()<-280 or snake.head.ycor()>280 or snake.head.ycor()<-280:
+        scoreboard.game_over()
+        game_on=False
     screen.update()
 
 screen.exitonclick()
