@@ -33,6 +33,13 @@ class Snake:
         last_segment_pos = self.segments[-1].position()
         self.add_segment(last_segment_pos)
 
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000,1000)
+        self.segments.clear()
+        self.create_snake()
+        self.head = self.segments[0]
+
     def move(self):
         # Apply the next direction at the beginning of the move cycle
         if self.current_direction != self.next_direction:
