@@ -4,7 +4,7 @@
 #todo/done - 4. detect food collision
 #todo/done - 5. create scoreboard
 #todo/done - 6. wall collsion
-#todo/done - 7. tail collsion
+#/done - 7. tail collsion
 
 # todo - highscore table(at the end when game over is writen , show highscore board)
 import time
@@ -48,8 +48,7 @@ while game_on:
     screen.update()
     #Detect collsion with wall
     if snake.head.xcor()>280 or snake.head.xcor()<-280 or snake.head.ycor()>280 or snake.head.ycor()<-280:
-        scoreboard.game_over()
-        game_on=False
+        scoreboard.reset()
     screen.update()
 
     # Detect collision with tail
@@ -57,7 +56,6 @@ while game_on:
         if snake.head==segment:
             pass
         elif snake.head.distance(segment) < 10:
-            scoreboard.game_over()
-            game_on = False
+            scoreboard.reset()
 
 screen.exitonclick()
